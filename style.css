@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.blocks { 
+    position: absolute;
+    color: transparent;
+    background-color: transparent;
+    width: 110px;
+    height: 80px;
+    z-index: 2;
+}
+
+.blocks:hover::after {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 200px;
+    border-radius: 40%;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 1px 1px 15px rgba(255, 255, 255, 0.2);
+}
+
+body {
+    width: 100%;
+}
+
+header {
+    height: 30vh;
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    padding: 20px 0;
+    background-image: url(img/wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#cards {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 20px;
+    width: 90vw;
+    height: 90%;
+}
+
+.card-container {
+    position: relative;
+    min-width: 150px;
+    min-height: 200px;
+
+    max-width: 250px;
+    max-height: 300px;
+    margin-bottom: 40px;
+}
+
+.card-container #block2 {
+    right: 0;
+}
+
+.card-container #block3 {
+    bottom: 0;
+}
+
+.card-container #block4 {
+    bottom: 0;
+    right: 0;
+}
+
+.card-container #block1:hover ~ img {
+    transform: skew(-3deg, -3deg) translateX(5px);
+    box-shadow: 20px 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-container #block2:hover ~ img {
+    transform: skew(3deg, 3deg) translateX(-5px);
+    box-shadow: -20px 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-container #block3:hover ~ img {
+    transform: skewX(3deg) translateX(-5px);
+    box-shadow: 20px -20px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-container #block4:hover ~ img {
+    transform: skewX(-3deg) translateX(5px);
+    box-shadow: -20px -20px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-container #block1:hover::after {
+    top: 0;
+    left: -20px;
+}   
+.card-container #block2:hover::after {
+    top: 0;
+    left: -20px;
+} 
+
+.card-container #block3:hover::after {
+    top: -100px;
+    left: -20px;
+} 
+.card-container #block4:hover::after {
+    top: -100px;
+    left: -20px;
+} 
+
+.card-container img {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+    border-radius: 7px;
+}
+
+.card {
+    display: none;
+}
+
+.card.active {
+    display: block;
+}
+
+.verse-card {
+    display: none;
+}
+
+.verse-card.active {
+    display: block;
+}
+
+@media screen and (max-width:490px) {
+    #cards {
+        justify-content: center;
+    }
+}
